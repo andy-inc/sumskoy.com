@@ -1,0 +1,24 @@
+{
+  "name": "sumskoy.com",
+  "version": "1.0.0",
+  "authors": [
+    "Andy <andy@away.name>"
+  ],
+  "description": "Landing page for http://sumskoy.com",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "http://sumskoy.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.0.3",
+    "normalize-css": "~2.1.3",
+    "davis": "~0.9.8"
+  }
+}

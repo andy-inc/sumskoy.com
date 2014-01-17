@@ -1,0 +1,214 @@
+// Extra small screen / phone
+// Note: Deprecated @screen-xs and @screen-phone as of v3.0.1
+@screen-xs:                  480px;
+@screen-xs-min:              @screen-xs;
+@screen-phone:               @screen-xs-min;
+
+// Small screen / tablet
+// Note: Deprecated @screen-sm and @screen-tablet as of v3.0.1
+@screen-sm:                  768px;
+@screen-sm-min:              @screen-sm;
+@screen-tablet:              @screen-sm-min;
+
+// Medium screen / desktop
+// Note: Deprecated @screen-md and @screen-desktop as of v3.0.1
+@screen-md:                  992px;
+@screen-md-min:              @screen-md;
+@screen-desktop:             @screen-md-min;
+
+// Large screen / wide desktop
+// Note: Deprecated @screen-lg and @screen-lg-desktop as of v3.0.1
+@screen-lg:                  1200px;
+@screen-lg-min:              @screen-lg;
+@screen-lg-desktop:          @screen-lg-min;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-xs-max:              (@screen-sm-min - 1);
+@screen-sm-max:              (@screen-md-min - 1);
+@screen-md-max:              (@screen-lg-min - 1);
+
+html, body, .wrap{
+  height: 100%;
+}
+
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 14px;
+}
+
+ul.list{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  li{
+    margin-bottom: 15px;
+  }
+  &.inline li{
+    display: inline;
+    margin-bottom: 0px;
+  }
+}
+
+@media (min-width: @screen-md) {
+  .side{
+    min-width: 300px;
+  }
+}
+
+.wrap-content{
+  @media (min-width: @screen-md) {
+    margin-left: 300px;
+  }
+  margin-left: 280px;
+}
+
+#content{
+  @link_color: #47ABDF;
+  @link_border: #c1dbef;
+  padding-top: 50px;
+  padding-left: 0px;
+
+  p{
+    font-size: 16px;
+    line-height: 30px;
+  }
+  a{
+    font-weight: normal;
+    text-decoration: none;
+    color: @link_color;
+    border-bottom: 1px solid @link_border;
+    margin-left: 5px;
+  }
+  ul{
+    li{
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 25px;
+    }
+  }
+  ul.links{
+    li {
+      line-height: 40px;
+      font-size: 14px;
+      a{
+        margin-right: 5px;
+
+      }
+    }
+  }
+  h1,h2,h3,h4,h5,h6{
+    font-weight: normal;
+  }
+  h3{
+    font-size: 20px;
+    line-height: 60px;
+  }
+
+}
+
+.side{
+  position: fixed;
+  width: 250px;
+  @color: rgba(255, 230, 209, 0.58);
+  @hover_color: white;
+  @bg_color: #292422;
+
+  height: 100%;
+  background-color: @bg_color;
+  color: @color;
+
+  h2, h3, h6{
+    font-weight: normal;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  h2, h3{
+    color: @hover_color;
+  }
+
+  h3{
+    font-size: 16px;
+  }
+  h2{
+    font-size: 24px;
+  }
+  .inner{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-left: 50px;
+    padding-bottom: 20px;
+
+    @media (max-width: @screen-sm) {
+      padding-left: 5px;
+    }
+    @media (min-width: @screen-sm) and (max-width: @screen-md) {
+      padding-left: 5px;
+    }
+  }
+  .links{
+    a{
+      color: @hover_color;
+      letter-spacing: 0;
+
+      &:hover{
+        color: @hover_color;
+        text-decoration: none;
+        border-bottom: 1px solid @hover_color;
+      }
+    }
+    i {
+      color: @color;
+      margin-right: 10px;
+    }
+
+  }
+  .center{
+    text-align: center;
+  }
+  .contacts {
+    font-size: 12px;
+    position: relative;
+
+    a{
+      color: @color;
+      letter-spacing: 0;
+
+      &:hover{
+        color: @hover_color;
+        text-decoration: none;
+      }
+    }
+
+    .photo{
+      position: absolute;
+      top: 25px;
+      left: -40px;
+      width: 80px;
+      height: 80px;
+      background-color: @bg_color;
+      border-radius: 50%;
+      background-image: url("/img/photo_side.jpg");
+      background-position: 0 -15px;
+    }
+  }
+  .group{
+    margin-bottom: 50px;
+  }
+}
+
+.footer{
+  position: fixed;
+  background-color: transparent;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
+  padding-right: 20px;
+  a {
+    margin-left: 5px;
+  }
+  opacity: 0.5;
+}
