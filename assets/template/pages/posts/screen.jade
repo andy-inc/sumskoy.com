@@ -1,0 +1,50 @@
+//
+   Created by andy on 20/01/14.
+div.post
+    h5.date Monday 20th January 2014
+    h4
+        a(href="/posts/screen") Screen: execute command in background
+    p
+        |Execute any process on your ssh and logout with continue this process. For this action you can use
+        span.rect screen
+        |.
+        | Screen can create multiple windows in a shell, from which you can
+        span.rect detach
+        |  and leave them running in the background, even if you log out of your user account.
+
+    h4 Create Screen
+    p
+        | From a terminal, type:
+        br
+        code.
+            $ screen -S [choose-a-window-name]
+        br
+        | And you will immediately enter the window just created.
+        | From this window you can type any command and leave it running in the background.
+        |    To detach from the window and go back to the terminal, just press the combination:
+        span.rect ctrl-a d
+        br
+        |    And you will go back to the terminal, where you can start more screens if needed, or even log out without stopping the job.
+    h4 Access a previously created Screen
+    p
+        | From a terminal, type:
+        br
+        code.
+            $ screen -r [window-name]
+        br
+        | to revert a previously created screen. If you do not remember the window name, you can list them through the command:
+        br
+        code.
+            $ screen -ls
+        br
+        |which gives information about the active screens and their names.
+    h4 Kill a Screen
+    p
+        | If your job is finished in one screen and you want to close it, you can go revert it and press:
+        span.rect ctrl-d
+        |  to close it, or you can close it from outside the screen through the command:
+        br
+        code.
+            $ screen -X -S [window-name] kill
+        br
+

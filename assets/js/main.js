@@ -23,6 +23,9 @@
                 pages.info(req.params['id']);
             });
             this.get('/', pages.index);
+            this.get('/posts/:id', function (req) {
+                pages.info('posts/' + req.params['id']);
+            });
         });
 
         app.configure(function (config) {
