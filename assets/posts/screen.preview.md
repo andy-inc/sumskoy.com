@@ -1,0 +1,2 @@
+Execute any process on your ssh and logout with continue this process. For this action you can use `screen`.
+Screen can create multiple windows in a shell, from which you can `detach` and leave them running in the background, even if you log out of your user account.

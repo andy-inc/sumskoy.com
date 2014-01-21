@@ -78,9 +78,22 @@ gulp.task('vendors', function(){
     gulp.src("./assets/vendors/davis/davis.js")
         .pipe(gulp.dest('./public/vendors/davis/'));
 
+    // vendors markdown
+    gulp.src("./assets/vendors/markdown/lib/markdown.js")
+        .pipe(gulp.dest('./public/vendors/markdown/lib/'));
+
+    // vendors moment js
+    gulp.src("./assets/vendors/moment/min/moment-with-langs.min.js")
+        .pipe(gulp.dest('./public/vendors/moment/min/'));
+
     // vendors normalize-css
     gulp.src("./assets/vendors/normalize-css/*.css")
         .pipe(gulp.dest('./public/vendors/normalize-css/'));
+});
+
+gulp.task('posts', function(){
+    gulp.src("./assets/posts/**/*")
+        .pipe(gulp.dest('./public/posts/'));
 });
 
 // Локальный сервер для разработки
@@ -107,6 +120,7 @@ gulp.task('watch', function() {
     gulp.run('vendors');
     gulp.run('font');
     gulp.run('css');
+    gulp.run('posts');
 
     // Подключаем Livereload
     server.listen(35729, function(err) {
@@ -120,6 +134,9 @@ gulp.task('watch', function() {
         });
         gulp.watch('assets/template/**/*.jade', function() {
             gulp.run('jade');
+        });
+        gulp.watch('assets/posts/**/*', function() {
+            gulp.run('posts');
         });
         gulp.watch('assets/img/**/*', function() {
             gulp.run('images');
@@ -165,6 +182,10 @@ gulp.task('build', function() {
     gulp.src('./assets/font/**/*')
         .pipe(gulp.dest('./build/font'));
 
+    //posts
+    gulp.src("./assets/posts/**/*")
+        .pipe(gulp.dest('./build/posts/'));
+
 
     // vendors boostrap
     gulp.src(["./assets/vendors/bootstrap/dist/**/*", "!./assets/vendors/bootstrap/dist/**/*.min.*"])
@@ -177,6 +198,14 @@ gulp.task('build', function() {
     // vendors davis
     gulp.src("./assets/vendors/davis/davis.js")
         .pipe(gulp.dest('./build/vendors/davis/'));
+
+    // vendors markdown
+    gulp.src("./assets/vendors/markdown/lib/markdown.js")
+        .pipe(gulp.dest('./build/vendors/markdown/lib/'));
+
+    // vendors moment
+    gulp.src("./assets/vendors/moment/min/moment-with-langs.min.js")
+        .pipe(gulp.dest('./build/vendors/moment/min/'));
 
     // vendors normalize-css
     gulp.src("./assets/vendors/normalize-css/*.css")
